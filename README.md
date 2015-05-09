@@ -69,7 +69,7 @@
         }
     });
     
-    <h5>Example 8 : </h5>
+  <h5>Example 8 : </h5>
     
     eLis.cEl({
         el : "p",
