@@ -63,8 +63,8 @@ var eLis = (function(){
             if (data.class) data.class = data.el.setAttribute("class", data.class);
             if (data.id) data.id = data.el.setAttribute("id", data.id || ""
             );
-            this.attr(data, el);
-            this.attrs(data, data.el, 0);
+            this.attr(data, el)
+            this.attrs(data, data.el,0);
             return data.el;
         },
 
@@ -79,9 +79,9 @@ var eLis = (function(){
         },
 
         attrs : function(data, el, i){
-            data.attr.attrs = data.attr.attrs || [];
-            data.attr.attrsData = data.attr.attrsData || [];
             if(data.attr && data.elNum){
+                data.attr.attrs = data.attr.attrs || [];
+                data.attr.attrsData = data.attr.attrsData || [];
                 if(data.attr.attrsData.length != data.elNum){
                     throw "attrsData length must match elNum"
                 }else if(data.attr.attrs.length != data.elNum){
@@ -89,19 +89,23 @@ var eLis = (function(){
                 }
                 el.setAttribute(data.attr.attrs[i], data.attr.attrsData[i]);
             }
-            if(data.html){
-                for (var j = 0; j < data.attr.attrs.length; j++){
-                    if(data.attr.attrs.length === data.attr.attrsData.length){
-                        data.el.removeAttribute("undefined");
-                        data.el.setAttribute(data.attr.attrs[j], data.attr.attrsData[j]);
-                    }else
-                    {
-                        throw "attrs length must match attrsData length"
+
+            if(data.attr){
+                if(data.html){
+                    for (var j = 0; j < data.attr.attrs.length; j++){
+                        if(data.attr.attrs.length === data.attr.attrsData.length){
+                            data.el.removeAttribute("undefined");
+                            data.el.setAttribute(data.attr.attrs[j], data.attr.attrsData[j]);
+                        }else
+                        {
+                            throw "attrs length must match attrsData length"
+                        }
                     }
                 }
+
             }
         }
-        
+
     }
 
 })();
