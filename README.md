@@ -4,7 +4,6 @@
 <h3>eLis - tiny JavaScript library for creating elements easily<h3>
 
 <h4>How to use:</h4>
-<h5>Creating Single Elements:</h5>
 
 <h5>Example 1 : </h5>
     eLis.cEl({
