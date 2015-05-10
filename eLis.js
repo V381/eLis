@@ -3,7 +3,7 @@
 
 var eLis = (function(){
     var eLis = {};
-    eLis.version = "0.0.2";
+    eLis.version = "0.0.1";
     return {
         cEl : function(data) {
             data = data || {};
@@ -108,6 +108,7 @@ var eLis = (function(){
                 }
             }
         },
+
         prependTo : function(data){
             if (data.prependTo) {
                 data.prependTo = data.prependTo || "";
@@ -116,6 +117,7 @@ var eLis = (function(){
                     if(data.elNum){
                         if(after.parentNode){
                             after.parentNode.insertBefore(data.el, after);
+                            after.parentNode.removeChild(data.el);
                         }
                     }else{
                         after.parentNode.insertBefore(data.el, after);
