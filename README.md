@@ -79,3 +79,26 @@
         appendTo : "body"
     });
  
+ <h5>Example 9 : </h5>
+ 
+    eLis.cEl({
+        el : "li",
+        elNum : 2,
+        elHtml : ["hello", "world"],
+        classes : ["class1", "class2"],
+        ids : ["", "ids2"],
+        prependTo : "li"
+    });
+    
+ <h5>Example 10 : </h5>
+ 
+    eLis.cEl({
+        el : "p",
+        elNum : 5,
+        elHtml : ["Some text", "Some text", "Some text", "Some text", "TSome text"],
+        attr : {
+           attrs : ["class", "style", "id", "href", "src"],
+           attrsData : ["someClass", "color:black", "someId", "/about", "../js/"]
+        },
+        prependTo : "section"
+    });
