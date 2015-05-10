@@ -3,7 +3,7 @@
 
 var eLis = (function(){
     var eLis = {};
-    eLis.version = "0.0.1";
+    eLis.version = "0.0.2";
     return {
         cEl : function(data) {
             data = data || {};
@@ -46,24 +46,28 @@ var eLis = (function(){
                                 el.removeAttribute("id");
                             }
 
-                            if (!data.appendTo) {
-                                throw "You must define appendTo property. !appendTo works only with single elements";
+                            if(data.prependTo){
+                                document.querySelector(data.prependTo).parentNode.insertBefore(el,
+                                    document.querySelector(data.prependTo)
+                                );
                             }
-                            else {
+
+                            if (data.appendTo) {
                                 data.appendTo.parentNode.appendChild(el);
                             }
                         }
                     }
-                    data.appendTo.parentNode.removeChild(data.appendTo)
+                    if(data.appendTo){
+                        data.appendTo.parentNode.removeChild(data.appendTo);
+                    }
 
                 }
 
-
-            data.attrarg = data.attrarg || "";
             if (data.class) data.class = data.el.setAttribute("class", data.class);
             if (data.id) data.id = data.el.setAttribute("id", data.id || ""
             );
-            this.attr(data, el)
+            this.prependTo(data);
+            this.attr(data, el);
             this.attrs(data, data.el,0);
             return data.el;
         },
@@ -91,7 +95,7 @@ var eLis = (function(){
             }
 
             if(data.attr){
-                if(data.html){
+                if(data.attr.attrs){
                     for (var j = 0; j < data.attr.attrs.length; j++){
                         if(data.attr.attrs.length === data.attr.attrsData.length){
                             data.el.removeAttribute("undefined");
@@ -102,7 +106,25 @@ var eLis = (function(){
                         }
                     }
                 }
+            }
+        },
+        prependTo : function(data){
+            if (data.prependTo) {
+                data.prependTo = data.prependTo || "";
+                if (typeof data.prependTo === "string") {
+                    var after = document.querySelector(data.prependTo);
+                    if(data.elNum){
+                        if(after.parentNode){
+                            after.parentNode.insertBefore(data.el, after);
+                        }
+                    }else{
+                        after.parentNode.insertBefore(data.el, after);
+                    }
 
+                }
+                else {
+                    data.prependTo = data.prependTo.appendChild(data.el);
+                }
             }
         }
 
