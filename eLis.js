@@ -1,6 +1,6 @@
 var eLis = (function(){
     var eLis = {};
-    eLis.version = "0.0.2";
+    eLis.version = "0.3";
     var mainEl = null;
     return {
         cEl: function (data) {
@@ -8,7 +8,7 @@ var eLis = (function(){
             if (typeof data.el === "string") {
                 data.el = document.createElement(data.el);
             } else if(typeof data.el != "string"){
-
+                console.log("Update in next ver")          
             } else{
                 throw "el must be string"
             }
