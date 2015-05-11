@@ -236,7 +236,7 @@ For information how to use, check examples.
 If <code>append()</code> or <code>save()</code> are not defined, elements will me cached in eLis.mainEl
 </br>
 To empty cache use <code>eLis.mainEl = null;</code> or <code>destroyEl()</code> method.
-Cache need to be empty or elements will duplicate.
+Cache need to be empty or elements will be duplicated.
 </p>
 Full cache:
 
