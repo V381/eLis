@@ -1,6 +1,9 @@
+
+/*Author : Pavle Paunovic */
+
 var eLis = (function(){
     var eLis = {};
-    eLis.version = "0.3";
+    eLis.version = "0.0.2";
     var mainEl = null;
     return {
         cEl: function (data) {
@@ -8,7 +11,7 @@ var eLis = (function(){
             if (typeof data.el === "string") {
                 data.el = document.createElement(data.el);
             } else if(typeof data.el != "string"){
-                console.log("Update in next ver")          
+
             } else{
                 throw "el must be string"
             }
@@ -169,6 +172,7 @@ var eLis = (function(){
         },
 
         append : function(to){
+
             var data = this.mainEl;
             if(typeof to === "string"){
                 to = document.querySelector(to);
@@ -179,7 +183,7 @@ var eLis = (function(){
                 to.appendChild(this.mainEl);
             }
             this.mainEl = null;
-            return this;
+            return null;
         },
 
         destroyEl : function(){
