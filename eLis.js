@@ -3,7 +3,7 @@
 
 var eLis = (function(){
     var eLis = {};
-    eLis.version = "0.0.2";
+    eLis.version = "0.3";
     var mainEl = null;
     return {
         cEl: function (data) {
