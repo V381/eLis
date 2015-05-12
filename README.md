@@ -7,10 +7,12 @@
 There are two ways to use it: </br>
 1. Creating single elements with <code>eLis.cEl({})</code>
 </br>
-2. Creating linked list using <code>eLis.list({})</code> and child methods.
+2. Creating linked list using <code>eLis.list({})</code> and child methods.</br>
+3. Methods :
     <ul>
-      <li>Append method eLis.mainEl cache: <code>eLis.list({}).next({appendTo: eLis.mainEl}).append("body")</code></li>
-      <li>Save method: <code>eLis.list({}).next({}).save(true || false)</code></li>
+      <li>Append :  eLis.mainEl cache: <code>eLis.list({}).next({appendTo: eLis.mainEl}).append("body")</code></li>
+      <li>Save : <code>eLis.list({}).next({}).save(true || false)</code></li>
+      <li>Destroy : <code>eLis.list({}).next({}).destroyEl()</code></li>
     </ul>
 </p>
 </br>
