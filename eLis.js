@@ -1,9 +1,6 @@
-
-/*Author : Pavle Paunovic */
-
 var eLis = (function(){
     var eLis = {};
-    eLis.version = "0.3";
+    eLis.version = "0.0.3";
     var mainEl = null;
     return {
         cEl: function (data) {
@@ -11,7 +8,7 @@ var eLis = (function(){
             if (typeof data.el === "string") {
                 data.el = document.createElement(data.el);
             } else if(typeof data.el != "string"){
-
+                data.el = data.el.appendChild(data.el);
             } else{
                 throw "el must be string"
             }
@@ -48,6 +45,7 @@ var eLis = (function(){
                         if (el.id === "undefined" || el.id === "") {
                             el.removeAttribute("id");
                         }
+
 
                         if (data.prependTo) {
                             document.querySelector(data.prependTo).parentNode.insertBefore(el,
