@@ -1,6 +1,9 @@
+
+/*Author : Pavle Paunovic */
+
 var eLis = (function(){
     var eLis = {};
-    eLis.version = "0.0.3";
+    eLis.version = "0.4";
     var mainEl = null;
     return {
         cEl: function (data) {
@@ -8,7 +11,7 @@ var eLis = (function(){
             if (typeof data.el === "string") {
                 data.el = document.createElement(data.el);
             } else if(typeof data.el != "string"){
-                data.el = data.el.appendChild(data.el);
+                data.el = data.el || ""
             } else{
                 throw "el must be string"
             }
@@ -45,7 +48,6 @@ var eLis = (function(){
                         if (el.id === "undefined" || el.id === "") {
                             el.removeAttribute("id");
                         }
-
 
                         if (data.prependTo) {
                             document.querySelector(data.prependTo).parentNode.insertBefore(el,
@@ -187,6 +189,22 @@ var eLis = (function(){
         destroyEl : function(){
             this.mainEl = null;
             return this;
+        },
+
+        traverseChildrenTree : function(node){
+            var z, niz = [];
+            node = node.children[0];
+            while(node.children){
+                z = node;
+                node = node.children[0];
+                if(node === undefined){
+                    for (var j = 0; j < z.parentNode.childNodes.length; j++){
+                        niz.push(z.parentNode.childNodes[j]);
+                    }
+                    break;
+                }
+            }
+            return niz;
         }
 
     }
