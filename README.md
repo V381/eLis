@@ -13,6 +13,7 @@ There are two ways to use it: </br>
       <li>Append :  eLis.mainEl cache: <code>eLis.list({}).next({appendTo: eLis.mainEl}).append("body")</code></li>
       <li>Save : <code>eLis.list({}).next({}).save(true || false)</code></li>
       <li>Destroy : <code>eLis.list({}).next({}).destroyEl()</code></li>
+      <li>Traversing Children Elements : <code>traverseChildrenTree(element)</code>
     </ul>
 </p>
 </br>
@@ -265,3 +266,73 @@ Empty cache:
        appendTo : eLis.mainEl
     }).destroyEl();
 
+<h5>Example 18 : </h5>
+
+<p><code>traverseChildrenTree</code> method accept one argument.</br>
+To get last elements in list(toArray) we use <code>traverseChildrenTree(element)</code>
+
+        var ul = eLis.cEl({
+           el : "ul"
+        });
+        
+        var list = eLis.list({
+           el : ul
+        }).next({
+           el : "li",
+           elNum : 5,
+           elHtml : ["home", "about", "contact", "blog", "portfolio"],
+           appendTo : eLis.mainEl
+        }).save(true);
+        
+        var lastElements = eLis.traverseChildrenTree(list)
+        [<li>​home​</li>​, <li>​about​</li>​, <li>​contact​</li>​, <li>​blog​</li>​, <li>​portfolio​</li>​]
+
+
+<h5>Example 19 : </h5>
+
+    (function(){
+        var z = eLis.list({
+            el : "main"
+        }).next({
+            el : "section",
+            appendTo : eLis.mainEl,
+            class : "container"
+        }).next({
+            el : "header",
+            appendTo : eLis.mainEl.next
+        }).next({
+            el : "nav",
+            appendTo : eLis.mainEl.next.next,
+            class : "mainNav"
+        }).next({
+            el : "ul",
+            appendTo : eLis.mainEl.next.next.next
+        }).next({
+            el : "li",
+            elNum : 5,
+            elHtml : ["", "", "", "", ""],
+            appendTo : eLis.mainEl.next.next.next.next
+        }).save(true);
+    
+        var traverseList = eLis.traverseChildrenTree(z);
+    
+        var html = ["home", "about", "contact", "portfolio", "blog"],
+            href = ["/home", "/about", "/contact", "/portfolio", "/blog"];
+    
+    
+        for (var i = 0; i < html.length; i++){
+            traverseList[i].appendChild(
+                eLis.cEl({
+                    el : "a",
+                    html : html[i],
+                    attr : {
+                        attr : ["href"],
+                        data : href[i]
+                    }
+                })
+            )
+        }
+    
+        document.body.appendChild(z);
+    
+    })();
