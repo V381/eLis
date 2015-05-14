@@ -134,7 +134,7 @@ var eLis = (function(){
         },
 
         mainEl : null,
-
+        // Creating linked list. Every .next node will be data object.
         list : function(data){
 
             var nodes = this.cEl(data);
@@ -153,12 +153,14 @@ var eLis = (function(){
             return this;
 
         },
-
+        // .next({}) method that chains on list with return this. Everytime when is initialized, new data object is created.
         next : function(data){
             this.list(data);
             return this;
         },
         cache : null,
+        
+        // Save eLis.mainEl elements to variable.
         save : function (arg1) {
               this.cache = this.mainEl;
               if(arg1 === true){
@@ -185,12 +187,12 @@ var eLis = (function(){
             this.mainEl = null;
             return null;
         },
-
+        // Clear eLis.mainEl.
         destroyEl : function(){
             this.mainEl = null;
             return this;
         },
-
+        // Methods traverse DOM tree, selecting first children.
         traverseChildrenTree : function(node){
             var z, niz = [];
             node = node.children[0];
