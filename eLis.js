@@ -6,6 +6,7 @@ var eLis = (function(){
     eLis.version = "0.4";
     var mainEl = null;
     return {
+        // cEl - main method for creating single elements
         cEl: function (data) {
             data = data || {};
             if (typeof data.el === "string") {
@@ -75,7 +76,7 @@ var eLis = (function(){
             data.next = null;
             return data.el;
         },
-
+        // attr method is used for creating single attribute for the data.el.
         attr: function (data) {
             if (data.attr) {
                 data.attr = data.attr || {};
@@ -85,7 +86,9 @@ var eLis = (function(){
                 );
             }
         },
-
+        // Method for setting multiple attributes. Data = main object, el = on what element, i = iteration
+        // data.attr.attrs is nested object.
+        // data.attrs need to match data.elNum
         attrs: function (data, el, i) {
             if (data.attr && data.elNum) {
                 data.attr.attrs = data.attr.attrs || [];
