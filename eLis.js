@@ -199,7 +199,10 @@ var eLis = (function(){
             this.mainEl = null;
             return this;
         },
-        // Methods traverse DOM tree, selecting first children.
+        // Method for traversing DOM tree, selecting first children node on each pass.
+        // If the node is undefined, then we know that we got to the end of tree.
+        // If break was not set, endless loop would occure.
+        // All elements are pushed in niz and returned as function value;
         traverseChildrenTree : function(node){
             var z, niz = [];
             node = node.children[0];
