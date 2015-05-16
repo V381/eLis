@@ -1,12 +1,15 @@
 
 /*Author : Pavle Paunovic */
 
+
+// Creating eLis module
+
 var eLis = (function(){
     var eLis = {};
     eLis.version = "0.4";
     var mainEl = null;
     return {
-        // cEl - main method for creating single elements
+        // cEl - main method for creating elements. Arguments is object with properties.
         cEl: function (data) {
             data = data || {};
             if (typeof data.el === "string") {
@@ -30,7 +33,7 @@ var eLis = (function(){
                     data.appendTo = data.appendTo.appendChild(data.el);
                 }
             }
-
+            
             if (data.elNum && data.el) {
                 data.elNum = data.elNum || 0;
                 for (var i = 0; i < data.elNum; i++) {
@@ -76,7 +79,8 @@ var eLis = (function(){
             data.next = null;
             return data.el;
         },
-        // attr method is used for creating single attribute for the data.el.
+        // attr method is used for creating attributes for the data.el.
+        // data.attr.data is nested object
         attr: function (data) {
             if (data.attr) {
                 data.attr = data.attr || {};
@@ -100,7 +104,7 @@ var eLis = (function(){
                 }
                 el.setAttribute(data.attr.attrs[i], data.attr.attrsData[i]);
             }
-
+            
             if (data.attr) {
                 if (data.attr.attrs) {
                     for (var j = 0; j < data.attr.attrs.length; j++) {
