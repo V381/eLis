@@ -16,6 +16,7 @@ There are two ways to use it: </br>
       <li>Traversing Children Elements : <code>traverseChildrenTree(element)</code>
     </ul>
 </p>
+
 </br>
 <p>
 All children elements must be appended to parent by using appendTo. 
