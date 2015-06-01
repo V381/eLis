@@ -1,7 +1,7 @@
 
 
 
-<h3>eLis - tiny JavaScript library for creating elements easily<h3>
+<h3>eLis - tiny JavaScript library for creating elements easily</h3>
 <p>
 
 There are two ways to use it: </br>
